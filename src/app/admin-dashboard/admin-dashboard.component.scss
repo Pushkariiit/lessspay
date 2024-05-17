@@ -1,0 +1,96 @@
+/* app.component.css */
+.container {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.col-sm {
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 10px; /* Adjust the border radius as needed */
+  margin-bottom: 20px; 
+  margin-right: 20px;
+  margin-left: 20px;/* Add more margin between the boxes */
+  text-align: center;
+}
+
+
+.table-container {
+  overflow: hidden;
+}
+
+.list{
+  background-color: white;
+  padding: 10px;
+  .list-header {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #C3CED2;
+  }
+  .item { 
+    display: flex;
+    padding: 10px 56px;
+    border:#E8F0FF
+    1px solid ;
+    flex-direction: row;
+    margin-bottom: 5px;
+    margin: 5px;
+    border-radius: 6px;
+    span { 
+      flex: 1;
+      color: #000;
+      font-weight: bold; 
+    }
+    p{
+      flex:1;
+    }
+    button{
+      background-color: #fff3e8;
+      color:#e7cc91;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+}
+
+
+.s-list{
+  background-color: white;
+  padding: 10px;
+  .s-list-header {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #C3CED2;
+  }
+  .item { 
+    display: flex;
+    padding: 10px 12px;
+    border:#E8F0FF
+    1px solid ;
+    flex-direction: row;
+    margin-bottom: 5px;
+    margin: 5px;
+    border-radius: 6px;
+    span { 
+      flex: 1;
+      color: #000;
+      font-weight: bold; 
+    }
+  }
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color:#9fc1fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-body { 
+  height: 106px;
+}

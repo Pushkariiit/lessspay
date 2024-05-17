@@ -1,0 +1,41 @@
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="app-brand demo">
+    <a href="index.html" class="app-brand-link">
+     <img src="assets/images/spym-logo-img.png" alt="" height="50">
+    </a>
+
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+
+  <ul class="menu-inner py-1">
+    <li class="menu-item">
+      <a  (click)="navigatetoDashboard()" class="menu-link">
+        <div>Dashboard</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a (click)="navigatetoReport()" class="menu-link">
+        <div>Reports</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a (click)="navigatetoVendors()" class="menu-link">
+        <div>Vendors</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a  (click)="navigatetoSurveyor()" class="menu-link">
+        <div>Surveyors</div>
+      </a>
+    </li>
+    <li class="menu-item">
+      <a  (click)="navigatetoTvc()" class="menu-link">
+        <div>TVC</div>
+      </a>
+    </li>
+  </ul>
+</aside>

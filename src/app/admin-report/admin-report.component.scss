@@ -1,0 +1,19 @@
+.container {
+    padding: 20px; /* Adjust the padding as needed */
+  }
+  
+  .col-sm {
+    padding: 15px;
+    border: 1px solid #000;
+    border-radius: 10px; /* Adjust the border radius as needed */
+    margin-bottom: 20px; 
+    margin-right: 20px;
+    margin-left: 20px;/* Add more margin between the boxes */
+    text-align: center;
+  }
+  
+  
+  .table-container {
+    overflow: hidden; /* Optional: Hide table borders when inside the container */
+  }
+  

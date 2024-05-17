@@ -1,0 +1,22 @@
+<div class="s-list">
+  <div class="s-list-header">
+    Surveyors
+  </div>
+  <div *ngIf="isLoadingSurveyors; else loadedSurveyorContent" class="skeleton-loader-container">
+    <div class="skeleton-item"></div>
+    <div class="skeleton-item"></div>
+    <div class="skeleton-item"></div>
+    <div class="skeleton-item"></div>
+    <div class="skeleton-item"></div>
+  </div>
+  <ng-template #loadedSurveyorContent>
+    <div class="item" *ngFor="let user of surveyorListData;let i = index">
+      <span>#{{i+1}}</span>
+      <span>{{ user.name || 'N/A' }}</span>
+      <span>{{ user.zone || 'N/A' }}</span>
+      <div class="circle">
+        24
+      </div>
+    </div>
+  </ng-template>
+</div>

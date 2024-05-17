@@ -1,0 +1,269 @@
+<div id="content">
+  <div id="header">
+    <div class="item">
+      <i class="fa-solid fa-chevron-left" style="padding-right: 17px; padding-top: 4px;" (click)="goVendor()"></i>
+      <span>{{this.phoneNumber}}</span>
+      <span>{{this.fullName}}</span>
+      <p> {{this.date}}</p>
+      <button class="Acknowledged" *ngIf="!this.user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified">Acknowledged</button>
+      <button class="certified" *ngIf="this.user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified">Certified</button>
+      <!-- <button [class.certified]="user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified">{{ user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified ? 'Certified' : 'Acknowledge' }}</button> -->
+    </div>
+    <div id="columns-container" style="display: flex;">
+      <div id="vertical-tabs" class="sidebar">
+        <div class="tab" (click)="openForm('Account Information')"
+          [class.selected]="selectedForm === 'Account Information'">Account Information</div>
+        <div class="tab" (click)="openForm('Vending Information')"
+          [class.selected]="selectedForm === 'Vending Information'">Vending Information</div>
+        <div class="tab" (click)="openForm('Family Information')"
+          [class.selected]="selectedForm === 'Family Information'">Family Information</div>
+        <div class="tab" (click)="openForm('Vendor KYC')" [class.selected]="selectedForm === 'Vendor KYC'">Vendor KYC
+        </div>
+        <div class="tab" (click)="openForm('Proof of Vending')" [class.selected]="selectedForm === 'Proof of Vending'">
+          Proof of Vending</div>
+      </div>
+      <div id="form-tabs">
+        <div *ngIf="selectedForm" class="form-tab-content">
+          <!-- Dynamic form content based on selectedForm -->
+          <ng-container *ngIf="selectedForm === 'Account Information'">
+            <div id="user-details-form">
+              <div class="form-container">
+                <div class="name-section">
+                  <div class="input-group" style="display: flex;">
+                    <div class="flex-fill me-1" >
+                      <input readonly class="no-focus" type="text" id="fname" name="firstname" placeholder="Your name.." [value]="firstName" class="w-100">
+
+                    </div>
+                    <div class="flex-fill ms-1">
+                      <input readonly class="no-focus" type="text" id="lname" name="lastname" placeholder="Your last name.." [value]="lastName" class="w-100">
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="gender" name="gender" placeholder="gender" [(ngModel)]="gender">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" id="dob" name="dob" [(ngModel)]="dateOfBirth">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" id="number" name="number" placeholder="phoneNumber" [(ngModel)]="phoneNumber">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" id="number" name="number" placeholder="landlineNumber" [(ngModel)]="landlineNumber">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="email" id="email" name="email" placeholder="Email Address"
+                    [(ngModel)]="emailAddress">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="text" name="email" placeholder="Father/Husband/Mother's name"
+                    [(ngModel)]="guardian">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" value="Widower" id="widowed" name="widowed" placeholder="widowed" *ngIf="!widowed" >
+                  <input readonly class="no-focus" type="text" value="Widowed" id="widowed" name="widowed" placeholder="widowed"*ngIf="widowed" >
+                  <input disabled type="checkbox" class="checkmark" [checked]="widowed" [class.checked]="widowed">
+                </div>
+                <P class="input-group py-0" >Address</P>
+                <div class="item">
+                  {{this.address}},{{this.address1}},{{this.area}},{{this.city}},{{this.landmark}},{{this.pinCode}}
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="email" id="email" name="email" placeholder="Current  Address">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="education" name="education" placeholder="Education  level"
+                    [(ngModel)]="educationLevel">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="annual income" name="annual income" placeholder="Annual income"
+                    [(ngModel)]="annualIncome">
+                </div>
+                <div class="d-flex input-group py-0">
+                <P>Has been previously recognised as vendor ?</P>
+                <div class="form-check form-switch ms-auto">
+                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                  <label for="flexSwitchCheckDefault" class="form-check-label ms-2"></label>
+                </div>
+              </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Category" name="Category" placeholder="Category"
+                    [(ngModel)]="selectedVendingType">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="land" name="land" placeholder="Land/Fixed Asset owned">
+                </div>
+                <!-- <div class="input-group" >
+                 <input readonly class="no-focus" type="text" id="bank details" name="bank details" placeholder="bank details">
+              </div> -->
+              <div class="accordion" id="accordionExample" >
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Bank Details </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="input-group">
+                        <input readonly class="no-focus" type="text" id="" name="accountHolderName" placeholder="accountHolderName" [(ngModel)]="accountHolderName">
+                      </div>
+                      <div class="input-group">
+                        <input readonly class="no-focus" id="accountNum" name="accountNum" [(ngModel)]="accountNum">
+                      </div>
+                      <div class="input-group">
+                        <input readonly class="no-focus" id="bankName" name="bankName" placeholder="bankName" [(ngModel)]="bankName">
+                      </div>
+                      <div class="input-group">
+                        <input readonly class="no-focus" id="branch" name="branch" placeholder="branch" [(ngModel)]="branch">
+                      </div>
+                      <div class="input-group">
+                        <input readonly class="no-focus" id="ifscCode" name="ifscCode" placeholder="ifscCode" [(ngModel)]="ifscCode">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+                <!--  -->
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="aadharNumber" name="Aadhar Number" placeholder="Aadhar Number">
+                  <a (click)="downloadDocument(aadharDocumentUrl, 'aadhar_card.jpg')"
+                    download="aadhar_card.jpg" class="checkmark">Download Doc</a>
+
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="" id="panNumber" name="Pan Number" placeholder="Pan Number">
+                  <a [href]="panDocumentUrl" download="pan_card.png"class="checkmark">view Doc</a>
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="" id="Additional Document" name="Additional Document"
+                    placeholder="Additional Document">
+                  <a href="{{ additionalDocumentUrl }}" download="additional_card.jpg" class="checkmark">view Doc</a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="selectedForm === 'Vending Information'">
+            <div id="user-details-form">
+              <div class="form-container">
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Type/Nature Of Vending" name="Type/Nature Of Vending"
+                    placeholder="Type/Nature Of Vending" [(ngModel)]="selectedVendingType">
+                </div>
+
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Site Of Vending" name="Site Of Vending" placeholder="Site Of Vending"
+                    [(ngModel)]="siteOfVending">
+                </div>
+                <div class="input-group">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d239487.1652253839!2d85.65564125231477!3d20.300807016970502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d5170aa5%3A0xfc580e2b68b33fa8!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1707893310167!5m2!1sen!2sin" width="598" height="156" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Years of Vending" name="Years of Vending"
+                    placeholder="Years of Vending" [(ngModel)]="yearsOfVending">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Vending Time" name="Vending Time" placeholder="Vending Time"
+                    [(ngModel)]="timeOfVending">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="selectedForm === 'Family Information'">
+            <div id="user-details-form">
+              <div class="form-container">
+                <p  class="input-group py-0">Member 1</p>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="fullname" name="fullname" placeholder="fullname"
+                    [(ngModel)]="memberOneName">
+                </div>
+
+                <div class="input-group" style="display: flex;">
+                  <div class="flex-fill me-1">
+                    <input readonly class="no-focus" type="text" id="gender" name="gender" placeholder="gender" class="w-100">
+                  </div>
+                  <div class="flex-fill ms-1">
+                    <input readonly class="no-focus" type="text" id="age" name="age" placeholder="age"  class="w-100">
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Occupation" name="Occupation" placeholder="Occupation"
+                    [(ngModel)]="memberOneOccupation">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="number" id="Aadhar Number" name="Aadhar Number" placeholder="Aadhar Number"
+                    [(ngModel)]="memberOneAadhar">
+                </div>
+
+
+                <p  class="input-group py-0">Member 2</p>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="fullname" name="fullname" placeholder="fullname"
+                    [(ngModel)]="memberTwoName">
+                </div>
+
+                
+                <div class="input-group" style="display: flex;">
+                  <div class="flex-fill me-1">
+                    <input readonly class="no-focus" type="text" id="gender" name="gender" placeholder="gender" class="w-100">
+                  </div>
+                  <div class="flex-fill ms-1">
+                    <input readonly class="no-focus" type="text" id="age" name="age" placeholder="age"  class="w-100">
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="Occupation" name="Occupation" placeholder="Occupation"
+                    [(ngModel)]="memberTwoOccupation">
+                </div>
+                <div class="input-group">
+                  <input readonly class="no-focus" type="number" id="Aadhar Number" name="Aadhar Number" placeholder="Aadhar Number"
+                    [(ngModel)]="memberTwoAadhar">
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="selectedForm === 'Vendor KYC'">
+            <div id="user-details-form">
+              <div class="form-container">
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" value="Aadhar Not Verified" id="Aadhar" name="Aadhar" placeholder="Aadhar" *ngIf="!aadharDocumentUrl" >
+                  <input readonly class="no-focus" type="text" value="Aadhar Verified" id="Aadhar" name="Aadhar" placeholder="Aadhar"*ngIf="aadharDocumentUrl" >
+                  <input type="checkbox" class="checkmark" [checked]="aadharDocumentUrl" [class.checked]="aadharDocumentUrl">
+                </div>
+                <div class="checkbox-indicator"></div>
+                <label for="aadharImage" style="padding-left: 259px;">Show Aadhar Card</label>
+                <div class="rectangle-box">
+                  <img *ngIf="aadharDocumentUrl" [src]="aadharDocumentUrl" alt="Aadhar Card">
+                  <div class="image-overlay" *ngIf="!aadharDocumentUrl">
+                    <span>Aadhar Card not available</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="selectedForm === 'Proof of Vending'">
+            <div id="user-details-form">
+              <div class="form-container">
+               
+                <div class="input-group">
+                  <input readonly class="no-focus" type="text" id="text"  value="Challan" placeholder="Challan">
+                </div>
+                <div class="rectangle-box">
+                  <img *ngIf="challanUrl" [src]="challanUrl" alt="Aadhar Card">
+                  <p style="margin-left: 300px;">view file</p>
+                  <div class="image-overlay" *ngIf="!challanUrl">
+                    <span>Challan not available</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

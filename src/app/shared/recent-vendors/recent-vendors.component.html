@@ -1,0 +1,36 @@
+<!-- recent-vendors.component.html -->
+<div class="list">
+  <div style="display: flex;">
+    <div class="list-header">
+      Recent Vendors
+    </div>
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      aria-expanded="false" style="margin-left: 10px; background: white;color: black;">
+      All Zones
+    </button>
+  </div>
+  <div>
+    <div *ngIf="isLoading; else loadedContent" class="skeleton-loader-container">
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+      <div class="skeleton-item"></div>
+    </div>
+
+    <ng-template #loadedContent>
+      <!-- Actual content when data is loaded -->
+      <div class="item" *ngFor="let user of surveyorList" (click)="goDetails(user)">
+        <span>{{ user?.AccountInformation?.__zone_symbol__value?.UserInfo?.phoneNum || 'N/A' }}</span>
+        <span>{{ user?.vendorList?.__zone_symbol__value?.newVendorData?.ownerName || 'N/A' }}</span>
+        <p>{{ user?.vendorList?.__zone_symbol__value?.newVendorData?.currentDate || 'N/A' }}</p> 
+        <!-- <p>{{user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified}}</p> -->
+        <button [class.certified]="user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified" (click)="$event.stopPropagation();changeCertificationStatus(user)">{{ user?.vendorList?.__zone_symbol__value?.newVendorData?.Certified ? 'Certified' : 'Acknowledge' }}</button>
+      </div>
+     
+      <div class="text-center">
+        <button *ngIf="hasMoreItems()" (click)="loadMore()" style="border: none; background: none; color: black;">See More</button>
+      </div>
+    </ng-template>
+  </div>
+</div>

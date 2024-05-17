@@ -1,0 +1,222 @@
+
+.user-info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.user-info-row label {
+  width: 150px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+.user-info-row span {
+  flex: 1;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.user-info-row input[type="checkbox"] {
+  margin-left: 10px;
+}
+.form-tab {
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+.form-tab:hover,
+.form-tab.selected {
+  background-color: #0056b3;
+}
+#user-details-form {
+  padding: 15px;
+}
+.item {
+  display: flex;
+  padding: 10px 56px;
+  display: flex;
+  padding: 10px 12px;
+  border: 1px solid #E8F0FF;
+  border: #E8F0FF 1px solid;
+  flex-direction: row;
+  margin-bottom: 5px;
+  margin: 5px;
+  border-radius: 6px;
+  span {
+    flex: 1;
+    color: #000;
+    font-weight: bold;
+  }
+  p {
+    flex: 1;
+  }
+  .Acknowledged {
+    background-color: #fff3e8;
+    color: #e7cc91;
+    border: none;
+    border-radius: 10px;
+  }
+  .certified {
+    background-color: #DBF4DC;
+    color: #65C565;
+    border: none;
+    border-radius: 10px;
+  }
+}
+.sidebar {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  width: 238px;
+}
+.tab {
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.tab:hover,
+.tab.selected {
+  background-color: #EBF3F7;
+  color: #007bff;
+}
+.selected {
+  background-color: #EBF3F7;
+  color: #007bff;
+}
+.input-group {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  position: relative;
+}
+.input-group input {
+  flex: 1;
+  margin-right: 5px;
+  flex: 1;
+  margin-right: 5px;
+  border: 1px solid #DCE2EF;
+  border-radius: 8px;
+  padding: 8px;
+}
+.input-group select {
+  width: calc(100% - 2px);
+  width: calc(100% - 2px);
+  border: 1px solid #DCE2EF;
+}
+.input-group.checked .checkmark::after {
+  content: '\2713';
+}
+button:hover {
+  background-color: #45a049;
+}
+button[_ngcontent-nue-c111]:hover {
+  background-color: #d9dee3;}
+.view-file-container {
+  text-align: center;
+}
+.view-file-container p {
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0;
+}
+.view-file-container p:hover {
+  color: #0056b3;
+}
+#form-tabs {
+  flex-grow: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.form-tab-content {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.form-container {
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #DCE2EF;
+}
+.checkmark {
+  position: absolute;
+  top: 50%;
+  right: 45px;
+  transform: translateY(-50%);
+  accent-color: green;
+  pointer-events: none;
+}
+.aadhar-image {
+  max-width: 100%;
+  max-height: 200px;
+}
+.rectangle-box {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+}
+.rectangle-box img {
+  display: block;
+  width: 70%;
+  height: auto;
+  padding-right: px;
+  padding-left: 129px;
+}
+.rectangle-box .image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+}
+.rectangle-box .image-overlay span {
+  padding: 10px;
+}
+.rectangle-box .image-overlay span:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.no-focus{
+  pointer-events: none;
+}
+input.no-focus:focus{
+  outline: none;
+}
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none; 
+}
+.show-dropdown {
+  display: block;
+}
